@@ -8,8 +8,8 @@ Coordenadas límite superior de la cinta A (centro del paquete):
 (-420, -1390)
 
 Coordenadas límite final de la cinta A (centro del paquete):
-(390-740, 760-2150)
-(-350, -1390)
+(750-810, 760-2150)
+(-60, -1390)
 
 Coordenadas límite inferior de la cinta C:
 (810-390,
