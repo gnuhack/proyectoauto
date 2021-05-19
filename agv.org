@@ -1,0 +1,17 @@
+* Código del AGV 3 (esquina superior derecha)
+
+  IF marcha THEN
+	IF a1.x >=-15 AND a1.x <= 5 AND a1.y >= -10 AND a1.y <= 605 THEN
+	a1.y:=a1.y+vagv;
+
+	ELSIF a1.x <= 5 AND a1.x >= -740 AND a1.y <= 610 AND a1.y >= 596 THEN
+	a1.x:=a1.x-vagv;
+
+	ELSIF a1.x >= -750 AND a1.x <=-740 AND a1.y <= 610 AND a1.y >= -5 THEN
+	a1.y:=a1.y-vagv;
+
+	ELSIF a1.x >= -750 AND a1.x <=10 AND a1.y <= 10 AND a1.y >= -10 THEN
+	a1.x:=a1.x+vagv;
+
+	END_IF;
+END_IF;

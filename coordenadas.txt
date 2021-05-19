@@ -1,15 +1,82 @@
-(x,y)
-Coordenadas límite inferior de la cinta A (centro del paquete):
+* Coordenadas de las cintas
+
+(x,y) (Coordenadas límites del centro del paquete)
+
+Inferior de la cinta A:
 (390-810, 1540-2150)
 (-420, -610)
 
-Coordenadas límite superior de la cinta A (centro del paquete):
+Superior de la cinta A:
 (390-810, 760-2150)
 (-420, -1390)
 
-Coordenadas límite final de la cinta A (centro del paquete):
+Final de la cinta A:
 (750-810, 760-2150)
 (-60, -1390)
 
-Coordenadas límite inferior de la cinta C:
-(810-390,
+Superior de la cinta C:
+(810-810, 830-2150)
+(0, -1320)
+
+Cinta intermedia izquierda:
+(810-810, 270-2150)
+(0, -1180)
+
+Cinta intermedia derecha:
+(2270-810, 270-2150)
+(1460, -1180)
+
+Almacén A1:
+(2040-810, 840-2150)
+(1230, -1310)
+
+Almacén A2:
+(2040-810, 1200-2150)
+(1230, -950)
+
+Almacén A3:
+(1870-810, 1200-2150)
+(1060, -950)
+
+Almacén B1:
+(2260-810, 840-2150)
+(1690, -1310)
+
+Almacén B2:
+(2260-810, 1200-2150)
+(1450, -950)
+
+lmacén C1:
+ (2500-810, 840-2150)
+ (1230, -950)
+
+Almacén C2:
+(2500-810, 1200-2150)
+(1690, -950)
+
+Almacén C3:
+(2670-810, 1200-2150)
+(1860, -950)
+
+
+* Coordenadas de los AGV:
+  Coordenadas relativas (con la resta de las coordenadas iniciales ya realizada)
+
+  AGV 1 carga:
+  (1040, -550)
+
+  AGV 2 carga:
+  (1410, -550)
+
+  AGV 3 carga:
+  (1800, -550)
+
+  C1:
+  (1830, 60)
+
+  C2:
+  (1440, 60)
+
+  C3:
+  (1070, 60)
+  
