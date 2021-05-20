@@ -4,3 +4,4 @@ Proyecto de automatización
 * TODO:
 ** Vuelta automática del robot.
 ** Sensores que se coloreen.
+** Indicador visual de que las cintas se están moviendo.
