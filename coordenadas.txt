@@ -1,6 +1,15 @@
 * Coordenadas de las cintas
 
-(x,y) (Coordenadas límites del centro del paquete)
+(x,y) (Coordenadas límites del centro del paquete):
+
+Superior de la cinta principal:
+(810-810, 1680-2150)
+(0, -470)
+
+Entrada de la cinta A:
+
+(680-810, 1540-2150)
+(-130, -610)
 
 Inferior de la cinta A:
 (390-810, 1540-2150)
@@ -14,9 +23,25 @@ Final de la cinta A:
 (750-810, 760-2150)
 (-60, -1390)
 
+Entrada de la cinta B:
+(810-810, 1400-2150)
+(0, -750)
+
+Final de la cinta B:
+(810-810, 840-810)
+(0, 30)
+
+Entrada de la cinta C:
+(940-810, 1540-2150)
+(130, -610)
+
 Superior de la cinta C:
 (810-810, 830-2150)
 (0, -1320)
+
+Final de la cinta C:
+(880-810, 760-2150)
+(70, -1390)
 
 Cinta intermedia izquierda:
 (810-810, 270-2150)
@@ -46,7 +71,7 @@ Almacén B2:
 (2260-810, 1200-2150)
 (1450, -950)
 
-lmacén C1:
+Almacén C1:
  (2500-810, 840-2150)
  (1230, -950)
 
