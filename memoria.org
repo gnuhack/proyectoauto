@@ -18,20 +18,28 @@ El proyecto resuelve el problema de logística y tratamiento del producto gracias
 
   Por último hay una botonera para el manejo de las cintas y el brazo robótico o grúa. En la parte izquierda de "Botonera_cin_gru" tenemos el control de todas las cintas del sistema, y un botón para introducir paquetes en la cinta principal manualmente. De abajo a arriba están los siguientes botones:
 
-** Paquete: Realiza lo anteriormente explicado.
+**** Paquete
+     Realiza lo anteriormente explicado.
 
-** C. ppal: Actuador de la cinta principal.
+**** C. ppal
+ Actuador de la cinta principal.
 
-** Girar (cambiar RA y RB por éste): Actúa el rodillo en sentido de carga.
+**** Girar (cambiar RA y RB por éste)
+ Actúa el rodillo en sentido de carga.
 
-** Volver (cambiar RC por éste): Actúa el rodillo en sentido de descarga.
+**** Volver (cambiar RC por éste)
+ Actúa el rodillo en sentido de descarga.
 
-** C.A, C.B, C.C: Actuadores de las cintas A, B y C.
+**** C.A, C.B, C.C
+ Actuadores de las cintas A, B y C.
 
-** C. Int: Actuador de la cinta intermedia.
+**** C. Int
+ Actuador de la cinta intermedia.
 
-** GIRO_CARGA: Actuador del giro de la plataforma giratoria en sentido antihorario.
+**** GIRO_CARGA
+ Actuador del giro de la plataforma giratoria en sentido antihorario.
 
-** GIRO_DESC: Actuador del giro de la plataforma giratoria en sentido horario.
+**** GIRO_DESC
+ Actuador del giro de la plataforma giratoria en sentido horario.
 
    En la parte derecha, tenemos el control manual del brazo robótico o grúa. Los botones A, B, y C hacen que la grúa se mueva hasta las cintas 1, 2 y 3 correspondientemente. Finalmente el botón V hace que la grúa vuelva a la posición de inicio.
