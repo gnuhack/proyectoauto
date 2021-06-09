@@ -1,0 +1,9 @@
+FOR i:=1 TO 5 BY 1 DO
+IF pale[i].x >= -20 AND pale[i].x <= 20 AND pale[i].y >= -632 AND pale[i].y <= -592 AND pale[i].on THEN
+spgc:=TRUE;
+EXIT;
+ELSE
+spgc:=FALSE;
+END_IF;
+END_FOR;
+
