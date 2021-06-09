@@ -2,13 +2,13 @@ IF marcha THEN
 	IF a1.x >=-15 AND a1.x <= 5 AND a1.y >= -10 AND a1.y <= 615 THEN
 	a1.y:=a1.y+vagv;
 
-	ELSIF a1.x <= 5 AND a1.x >= -740 AND a1.y <= 620 AND a1.y >= 610 THEN
+	ELSIF a1.x <= 5 AND a1.x >= -765 AND a1.y <= 620 AND a1.y >= 610 THEN
 	a1.x:=a1.x-vagv;
 
-	ELSIF a1.x >= -750 AND a1.x <=-740 AND a1.y <= 620 AND a1.y >= -5 THEN
+	ELSIF a1.x >= -770 AND a1.x <=-760 AND a1.y <= 620 AND a1.y >= -5 THEN
 	a1.y:=a1.y-vagv;
 
-	ELSIF a1.x >= -750 AND a1.x <=10 AND a1.y <= 10 AND a1.y >= -10 THEN
+	ELSIF a1.x >= -770 AND a1.x <=10 AND a1.y <= 10 AND a1.y >= -10 THEN
 	a1.x:=a1.x+vagv;
 	END_IF;
 
