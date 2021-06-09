@@ -1,0 +1,134 @@
+IF marcha THEN
+	IF a1.x >=-15 AND a1.x <= 5 AND a1.y >= -10 AND a1.y <= 615 THEN
+	a1.y:=a1.y+vagv;
+
+	ELSIF a1.x <= 5 AND a1.x >= -740 AND a1.y <= 620 AND a1.y >= 610 THEN
+	a1.x:=a1.x-vagv;
+
+	ELSIF a1.x >= -750 AND a1.x <=-740 AND a1.y <= 620 AND a1.y >= -5 THEN
+	a1.y:=a1.y-vagv;
+
+	ELSIF a1.x >= -750 AND a1.x <=10 AND a1.y <= 10 AND a1.y >= -10 THEN
+	a1.x:=a1.x+vagv;
+	END_IF;
+
+END_IF;
+
+IF marcha THEN
+
+
+	IF a2.x >= -10 AND a2.x <=770 AND a2.y <= 10 AND a2.y >= -10 THEN
+	a2.x:=a2.x+vagv;
+
+	ELSIF a2.x >=760 AND a2.x <= 780 AND a2.y >= -10 AND a2.y <= 615 THEN
+	a2.y:=a2.y+vagv;
+
+	ELSIF a2.x <= 780 AND a2.x >= -5 AND a2.y <= 620 AND a2.y >= 610 THEN
+	a2.x:=a2.x-vagv;
+
+	ELSIF a2.x >= -10 AND a2.x <=10 AND a2.y <= 620 AND a2.y >= -5 THEN
+	a2.y:=a2.y-vagv;
+
+
+	END_IF;
+
+END_IF;
+
+
+IF marcha THEN
+
+
+	IF a3.x >= -10 AND a3.x <=395 AND a3.y <= 10 AND a3.y >= -10 THEN
+	a3.x:=a3.x+vagv;
+
+	ELSIF a3.x >=390 AND a3.x <= 400 AND a3.y >= -10 AND a3.y <= 615 THEN
+	a3.y:=a3.y+vagv;
+
+	ELSIF a3.x <= 400 AND a3.x >= -370 AND a3.y <= 620 AND a3.y >= 610 THEN
+	a3.x:=a3.x-vagv;
+
+	ELSIF a3.x >= -375 AND a3.x <=-365 AND a3.y <= 620 AND a3.y >= -5 THEN
+	a3.y:=a3.y-vagv;
+
+	ELSIF a3.x >= -375 AND a3.x <=5 AND a3.y <= 10 AND a3.y >= -10 THEN
+	a3.x:=a3.x+vagv;
+
+	END_IF;
+
+END_IF;
+
+(*Sensores de carga*)
+
+(* Sensor 1*)
+
+IF a1.x >= -20 AND  a1.x <= 20 AND a1.y >= -20 AND a1.y <= 20 THEN
+
+carga3:=TRUE;
+
+ELSE
+
+carga3:=FALSE;
+
+END_IF;
+
+(*Sensor 2*)
+IF a2.x >= -20 AND  a2.x <= 20 AND a2.y >= -20 AND a2.y <= 20 THEN
+
+
+carga2:=TRUE;
+
+ELSE
+
+carga2:=FALSE;
+
+END_IF;
+
+(*Sensor 3*)
+IF a3.x >= -20 AND  a3.x <= 20 AND a3.y >= -20 AND a3.y <= 20 THEN
+
+
+carga1:=TRUE;
+
+ELSE
+
+carga1:=FALSE;
+
+END_IF;
+
+(*Sensores de descarga*)
+
+(* Sensor 1*)
+
+IF a1.x >= -20 AND  a1.x <= 20 AND a1.y >= 590 AND a1.y <= 630 OR  a2.x >= 740 AND  a2.x <= 780 AND a2.y >= 590 AND a2.y <= 630 OR a3.x >= 370 AND  a3.x <= 440 AND a3.y >= 590 AND a3.y <= 630  THEN
+
+C1:=TRUE;
+
+ELSE
+
+C1:=FALSE;
+
+END_IF;
+
+(* Sensor 2*)
+
+IF a1.x >= -410 AND  a1.x <= -370 AND a1.y >= 590 AND a1.y <= 630 OR  a2.x >= 350 AND  a2.x <= 390 AND a2.y >= 590 AND a2.y <= 630 OR a3.x >= -20 AND  a3.x <= 20 AND a3.y >= 590 AND a3.y <= 630  THEN
+
+C2:=TRUE;
+
+ELSE
+
+C2:=FALSE;
+
+END_IF;
+
+(* Sensor 3*)
+
+IF a1.x >= -780 AND  a1.x <= -740 AND a1.y >= 590 AND a1.y <= 630 OR  a2.x >= -20 AND  a2.x <= 20 AND a2.y >= 590 AND a2.y <= 630 OR a3.x >= -390 AND  a3.x <= -350 AND a3.y >= 590 AND a3.y <= 630  THEN
+
+C3:=TRUE;
+
+ELSE
+
+C3:=FALSE;
+
+END_IF;
