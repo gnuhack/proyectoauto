@@ -1,6 +1,6 @@
 * Descripción del sistema
   
-El proyecto resuelve el problema de logística y tratamiento del producto gracias a un almacén automatizado de reparto de prensa. El flujo de trabajo empieza en la cinta principal. En primer lugar, entran paquetes por la cinta, que son más tarde escaneados por un lector de códigos QR (embebido en el lector de posición de final de la cinta) para poder clasificarse posteriormente. Seguidamente, al llegar a la plataforma giratoria, dependiendo del tipo de paquete se traslada a la cinta A, B o C, donde se le aplican sendos procesos según el tipo de paquete (encartado, flejado o embolsado). Luego son llevados a una cinta común (cinta intermedia). Al final de esta cinta se encuentra un cruce (recurso compartido) donde se decide qué paquete pasa en función de un orden de prioridad previamente asignado (es prioritario el paquete B, luego el A y por último el C). Al final de la cinta intermedia un brazo mecánico se encargará de trasladar los paquetes a las cintas finales (cintas 1, 2 y 3) que conectan con los respectivos almacenes (A, B y C). Desde aquí tres AGV irán cogiendo los tres tipos de paquetes. Cada AGV tiene asignado un solo tipo de paquete, que luego irá depositando en los tres camiones dependiendo de los pedidos de cada camión.
+El proyecto resuelve el problema de logística y tratamiento del producto gracias a un almacén automatizado de reparto de prensa. El flujo de trabajo empieza en la cinta principal. En primer lugar, entran paquetes por la cinta, que son más tarde escaneados por un lector de códigos QR (embebido en el lector de posición de final de la cinta) para poder clasificarse posteriormente. Seguidamente, al llegar a la plataforma giratoria con rodillos, dependiendo del tipo de paquete se traslada a la cinta A, B o C, donde se le aplican sendos procesos según el tipo de paquete (encartado, flejado o embolsado). Luego son llevados a una cinta común (cinta intermedia). Al final de esta cinta se encuentra un cruce (recurso compartido) donde se decide qué paquete pasa en función de un orden de prioridad previamente asignado (es prioritario el paquete B, luego el A y por último el C). Al final de la cinta intermedia un brazo mecánico se encargará de trasladar los paquetes a las cintas finales (cintas 1, 2 y 3) que conectan con los respectivos almacenes (A, B y C). Desde aquí tres AGV irán cogiendo los tres tipos de paquetes. Cada AGV tiene asignado un solo tipo de paquete, que luego irá depositando en los tres camiones dependiendo de los pedidos de cada camión.
 
 * Objetivos de control
 
@@ -13,3 +13,25 @@ El proyecto resuelve el problema de logística y tratamiento del producto gracias
 * Explicación de la visualización
 
   Hemos decidido implementar los sensores con forma triangular o cuadrada y un código de colores dual. Cuando están desactivados se muestran en rojo, y al activarse pasan a estar coloreados en verde hasta que se vuelven a desactivar. Por otra parte hemos incluido indicadores visuales que permiten ver de forma fácil qué cintas o procesos están activados en cada momento. Estos indicadores se muestran en blanco cuando su actuador correspondiente está desactivado y en azul en caso contrario. También tenemos un semáforo en el cruce de las cintas A, B y C con la cinta intermedia, que permite ver si el cruce está o no ocupado.
+
+  Por otro lado tenemos las dos botoneras para el modo manual. En "Botonera_alm_agv" están los botones que manejan el almacén y los AGV. A la izquierda tenemos los botones A, B y C que descargan los paquetes de forma manual de sus respectivos almacenes. A la derecha tenemos la botonera del AGV, que consta de un botón MARCHA que activa o desactiva los tres AGV de forma simultánea, y de otro botón REPARTO que hace que entren los pedidos de los camiones a los AGV.
+
+  Por último hay una botonera para el manejo de las cintas y el brazo robótico o grúa. En la parte izquierda de "Botonera_cin_gru" tenemos el control de todas las cintas del sistema, y un botón para introducir paquetes en la cinta principal manualmente. De abajo a arriba están los siguientes botones:
+
+** Paquete: Realiza lo anteriormente explicado.
+
+** C. ppal: Actuador de la cinta principal.
+
+** Girar (cambiar RA y RB por éste): Actúa el rodillo en sentido de carga.
+
+** Volver (cambiar RC por éste): Actúa el rodillo en sentido de descarga.
+
+** C.A, C.B, C.C: Actuadores de las cintas A, B y C.
+
+** C. Int: Actuador de la cinta intermedia.
+
+** GIRO_CARGA: Actuador del giro de la plataforma giratoria en sentido antihorario.
+
+** GIRO_DESC: Actuador del giro de la plataforma giratoria en sentido horario.
+
+   En la parte derecha, tenemos el control manual del brazo robótico o grúa. Los botones A, B, y C hacen que la grúa se mueva hasta las cintas 1, 2 y 3 correspondientemente. Finalmente el botón V hace que la grúa vuelva a la posición de inicio.
