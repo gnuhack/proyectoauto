@@ -1,0 +1,53 @@
+IF c1pais=1 THEN
+	PedidoC1[1]:=PedidoC1[1]+1;
+END_IF
+
+IF c1abc=1 THEN
+	PedidoC1[2]:=PedidoC1[2]+1;
+END_IF
+
+IF c1mundo=1 THEN
+	PedidoC1[3]:=PedidoC1[3]+1;
+END_IF
+
+IF c2pais=1 THEN
+	PedidoC2[1]:=PedidoC2[1]+1;
+END_IF
+
+IF c2abc=1 THEN
+	PedidoC2[2]:=PedidoC2[2]+1;
+END_IF
+
+IF c2mundo=1 THEN
+	PedidoC2[3]:=PedidoC2[3]+1;
+END_IF
+
+IF c3pais=1 THEN
+	PedidoC3[1]:=PedidoC3[1]+1;
+END_IF
+
+IF c3abc=1 THEN
+	PedidoC3[2]:=PedidoC3[2]+1;
+END_IF
+
+IF c3mundo=1 THEN
+	PedidoC3[3]:=PedidoC3[3]+1;
+END_IF
+
+IF pedido=1 THEN
+	PedidoTotal[1]:=PedidoC1[1]+PedidoC2[1]+PedidoC3[1];
+	PedidoTotal[2]:=PedidoC1[2]+PedidoC2[2]+PedidoC3[2];
+	PedidoTotal[3]:=PedidoC1[3]+PedidoC2[3]+PedidoC3[3];
+END_IF
+
+VAR
+	PedidoC1:ARRAY[1..3] OF INT;
+	PedidoC2:ARRAY[1..3] OF INT;
+	PedidoC3:ARRAY[1..3] OF INT;
+
+END_VAR
+
+VAR_GLOBAL
+	pedido: BOOL;
+	PedidoTotal: ARRAY[1..3] OF INT;
+END_VAR
