@@ -1,0 +1,27 @@
+FOR i:=1 TO 5 DO
+	pale[i].x:=0;
+	pale[i].y:=0;
+	pale[i].leido:=FALSE;
+	pale[i].on:=FALSE;
+END_FOR
+
+(* METER ESTO EN AUX Y LECTORQR*)
+IF Nreset=1 THEN
+		N:=0;
+END_IF
+(**)
+reset_cint:=1;
+reset_contc1:=1;
+reset_contc2:=1;
+reset_contc3:=1;
+reset_cca:=1;
+reset_ccb:=1;
+reset_cc:=1;
+CintasABC.salidaa:=0;
+CintasABC.salidab:=0;
+CintasABC.salidac:=0;
+PA:=0;
+PB:=0;
+PC:=0;
+Dispensador.soltar_paquete:=0;
+Bandera:=0;
