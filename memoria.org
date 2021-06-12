@@ -1,5 +1,9 @@
+#+LANGUAGE: es
+#+AUTHOR: Jorge Rdodríguez Rubio, Carlos Pajuelo Rojo
+#+TITLE: GNUS: REPARTO DE PRENSA
+
 * Descripción del sistema
-  
+
 El proyecto resuelve el problema de logística y tratamiento del producto gracias a un almacén automatizado de reparto de prensa. El flujo de trabajo empieza en la cinta principal. En primer lugar, entran paquetes por la cinta, que son más tarde escaneados por un lector de códigos QR (embebido en el lector de posición de final de la cinta) para poder clasificarse posteriormente. Seguidamente, al llegar a la plataforma giratoria con rodillos, dependiendo del tipo de paquete se traslada a la cinta A, B o C, donde se le aplican sendos procesos según el tipo de paquete (encartado, flejado o embolsado). Luego son llevados a una cinta común (cinta intermedia). Al final de esta cinta se encuentra un cruce (recurso compartido) donde se decide qué paquete pasa en función de un orden de prioridad previamente asignado (es prioritario el paquete B, luego el A y por último el C). Al final de la cinta intermedia un brazo mecánico se encargará de trasladar los paquetes a las cintas finales (cintas 1, 2 y 3) que conectan con los respectivos almacenes (A, B y C). Desde aquí tres AGV irán cogiendo los tres tipos de paquetes. Cada AGV tiene asignado un solo tipo de paquete, que luego irá depositando en los tres camiones dependiendo de los pedidos de cada camión.
 
 * Objetivos de control
