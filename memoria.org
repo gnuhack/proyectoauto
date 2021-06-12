@@ -8,7 +8,7 @@ El proyecto resuelve el problema de logística y tratamiento del producto gracias
 
 * Modos de funcionamiento
 
-  El modo de funcionamiento por defecto es el modo automático, en el que todo el proceso desde que se pulsa el botón "Paquete" hasta la carga en el camión es automático. Por otra parte tenemos el modo manual, a través del cual se pueden manejar todos los actuadores de la planta a través de la interfaz HMI, implementada en las botoneras "Botonera_alm_agv" y "Botonera_cin_gru". Por último hemos decidido meter un modo "pausa" que, a diferencia del marcha/paro, deja la planta paralizada en el estado que estuviera hasta que se desactive el modo.
+  El modo de funcionamiento por defecto es el modo automático, en el que todo el proceso desde que se pulsa el botón "Paquete" hasta la carga en el camión es automático. Por otra parte tenemos el modo manual, a través del cual se pueden manejar todos los actuadores de la planta a través de la interfaz HMI, implementada en las botoneras "Botonera_alm_agv" y "Botonera_cin_gru". Por último hemos decidido meter un modo "pausa" que, a diferencia del marcha/paro, deja la planta paralizada en el estado que estuviera hasta que se desactive el modo. Tiene prioridad sobre marcha/paro.
 
 * Explicación de la visualización
 
@@ -18,28 +18,28 @@ El proyecto resuelve el problema de logística y tratamiento del producto gracias
 
   Por último hay una botonera para el manejo de las cintas y el brazo robótico o grúa. En la parte izquierda de "Botonera_cin_gru" tenemos el control de todas las cintas del sistema, y un botón para introducir paquetes en la cinta principal manualmente. De abajo a arriba están los siguientes botones:
 
-*** Paquete:
+*) Paquete:
      Realiza lo anteriormente explicado.
 
-*** C. ppal:
+*) C. ppal:
  Actuador de la cinta principal.
 
-*** Girar (cambiar RA y RB por éste):
+*) Girar (cambiar RA y RB por éste):
  Actúa el rodillo en sentido de carga.
 
-*** Volver (cambiar RC por éste):
+*) Volver (cambiar RC por éste):
  Actúa el rodillo en sentido de descarga.
 
-*** C.A, C.B, C.C:
+*) C.A, C.B, C.C:
  Actuadores de las cintas A, B y C.
 
-*** C. Int:
+*) C. Int:
  Actuador de la cinta intermedia.
 
-*** GIRO_CARGA:
+*) GIRO_CARGA:
  Actuador del giro de la plataforma giratoria en sentido antihorario.
 
-*** GIRO_DESC:
+*) GIRO_DESC:
  Actuador del giro de la plataforma giratoria en sentido horario.
 
    En la parte derecha, tenemos el control manual del brazo robótico o grúa. Los botones A, B, y C hacen que la grúa se mueva hasta las cintas 1, 2 y 3 correspondientemente. Finalmente el botón V hace que la grúa vuelva a la posición de inicio.
