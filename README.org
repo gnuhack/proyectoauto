@@ -1,6 +1,57 @@
-# proyectoauto
-Proyecto de automatización
+#+LANGUAGE: es
+#+AUTHOR: Jorge Rdodríguez Rubio, Carlos Pajuelo Rojo
+#+TITLE: GNUS: REPARTO DE PRENSA
 
-* TODO:
-** Control automático
-** Modos de operación
+* Visualización principal
+#+CAPTION: Esquema del almacén del proyecto.
+#+NAME:   fig:Visualización
+[[./vis.png]]
+* Descripción del sistema
+
+El proyecto resuelve el problema de logística y tratamiento del producto gracias a un almacén automatizado de reparto de prensa. El flujo de trabajo empieza en la cinta principal. En primer lugar, entran paquetes por la cinta, que son más tarde escaneados por un lector de códigos QR para poder clasificarse posteriormente. Seguidamente, al llegar a la plataforma giratoria con rodillos, dependiendo del tipo de paquete se traslada a la cinta A, B o C, donde se le aplican sendos procesos según el tipo de paquete (encartado, flejado o embolsado). Para mejorar la eficiencia del sistema, decidimos posteriormente añadir cintas A2, B2 y C2 después de los procesos. Tras estas cintas son llevados a una cinta común (cinta intermedia). Al final de esta cinta se encuentra un cruce (recurso compartido) donde se decide qué paquete pasa en función de un orden de prioridad previamente asignado (es prioritario el paquete B, luego el A y por último el C). Al final de la cinta intermedia un brazo mecánico se encargará de trasladar los paquetes a las cintas finales (cintas 1, 2 y 3) que conectan con los respectivos almacenes (A, B y C). Desde aquí tres AGV irán cogiendo los tres tipos de paquetes. Cada AGV tiene asignado un solo tipo de paquete, que luego irá depositando en los tres camiones dependiendo de los pedidos de cada camión.
+
+* Objetivos de control
+
+  El objetivo es que los paquetes que van entrando por la cinta principal cada 5 segundos acaben cargados en los camiones de acuerdo a los pedidos que éstos realicen.
+
+* Modos de funcionamiento
+
+  El modo de funcionamiento por defecto es el modo automático, en el que todo el proceso desde que aparece el paquete en la cinta principal hasta la carga en el camión es automático. Por otra parte tenemos el modo manual, a través del cual se pueden manejar todos los actuadores de la planta con la interfaz HMI, implementada en las botoneras "Botonera_alm_agv" y "Botonera_cin_gru". Por último hemos decidido implementar un modo "pausa" que, a diferencia del marcha/paro, deja la planta paralizada en caso de que estuviera operando en modo automático hasta que se desactive el modo. Tiene prioridad sobre marcha.
+
+* Explicación de la visualización
+
+  Hemos decidido implementar los sensores con forma triangular o cuadrada y un código de colores dual. Cuando están desactivados se muestran en rojo, y al activarse pasan a estar coloreados en verde hasta que se vuelven a desactivar. Por otra parte hemos incluido indicadores visuales que permiten ver de forma fácil qué cintas o procesos están activados en cada momento. Estos indicadores se muestran en blanco cuando su actuador correspondiente está desactivado y en azul en caso contrario. También tenemos un semáforo en el cruce de las cintas A, B y C con la cinta intermedia, que permite ver si el cruce está o no ocupado.
+
+  Por otro lado tenemos las dos botoneras para el modo manual. En "Botonera_alm_agv" están los botones que manejan el almacén y los AGV. A la izquierda tenemos los botones A, B y C que descargan los paquetes de forma manual de sus respectivos almacenes. A la derecha tenemos la botonera del AGV, que consta de un botón MARCHA que activa o desactiva los tres AGV de forma simultánea.
+
+  La "Botonera_pedidos" se encarga de gestionar los pedidos. Se pueden realizar pedidos de los tres tipos de paquetes a cada camión. Cuando el pedido está listo se pulsa el botón "PEDIDO" para que los AGV se pongan en marcha una vez el pedido haya llegado al almacén.
+
+  En "ModosFunc" tenemos implementados los modos de funcionamiento. Una ruleta permite seleccionar el modo que queremos activar (AUTO o MANUAL), cuyo cartel se colorea en verde cuando está activo. Por otra parte tenemos los botones de MARCHA/PARO, y además hemos añadido el modo PAUSA/CONTINUE, que tiene prioridad sobre el modo AUTO. Cada uno de estos cuatro botones cuenta con una señal luminosa que indica cuando están activos (verde), o en el caso de que AUTO se encuentre pausado se muestra el indicador de color ámbar.
+
+  Por último hay una botonera para el manejo de las cintas y el brazo robótico o grúa. En la parte izquierda de "Botonera_cin_gru" tenemos el control de todas las cintas del sistema, y un botón para introducir paquetes en la cinta principal manualmente. De abajo a arriba están los siguientes botones:
+
+*) Paquete:
+ Permite soltar paquetes sobre la cinta principal en el modo manual.
+
+*) C. ppal:
+ Actuador de la cinta principal.
+
+*) ROD_CARGA y ROD_DESC:
+ Activa la plataforma giratoria (rodillo) en sentido de carga o descarga.
+
+*) C.A1, C.B1, C.C1:
+ Actuadores del primer tramo de las cintas A, B y C.
+
+*) C.A2, C.B2, C.C2:
+ Actuadores del segundo tramo de las cintas A, B y C.
+
+*) C. Int:
+ Actuador de la cinta intermedia.
+
+*) GIRO_CARGA:
+ Actuador del giro de la plataforma giratoria en sentido antihorario.
+
+*) GIRO_DESC:
+ Actuador del giro de la plataforma giratoria en sentido horario.
+
+   En la parte derecha, tenemos el control manual del brazo robótico o grúa. Los botones A, B, y C hacen que la grúa se mueva hasta las cintas 1, 2 y 3 correspondientemente. Finalmente el botón V hace que la grúa vuelva a la posición de inicio.
