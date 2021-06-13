@@ -12,23 +12,23 @@ El proyecto resuelve el problema de logística y tratamiento del producto gracias
 
 * Objetivos de control
 
-  El objetivo es que los paquetes que van entrando por la cinta principal cada 5 segundos acaben cargados en los camiones de acuerdo a los pedidos que éstos realicen.
+  El objetivo es que los paquetes que van entrando por la cinta principal cada 5 segundos acaben cargados en los camiones de acuerdo a los pedidos que éstos realicen. La finalidad sería que el control funcionara de forma ininterrumpida ante un suministro ilimitado de paquetes, pero, debido a las limitaciones de Codesys, hemos decidido crear solo 5 paquetes a modo de demostración.
 
 * Modos de funcionamiento
 
-  El modo de funcionamiento por defecto es el modo automático, en el que todo el proceso desde que aparece el paquete en la cinta principal hasta la carga en el camión es automático. Por otra parte tenemos el modo manual, a través del cual se pueden manejar todos los actuadores de la planta con la interfaz HMI, implementada en las botoneras "Botonera_alm_agv" y "Botonera_cin_gru". Por último hemos decidido implementar un modo "pausa" que, a diferencia del marcha/paro, deja la planta paralizada en caso de que estuviera operando en modo automático hasta que se desactive el modo. Tiene prioridad sobre marcha.
+  El modo de funcionamiento por defecto es el modo automático, en el que todo el proceso desde que aparece el paquete en la cinta principal hasta la carga en el camión es automático. Por otra parte tenemos el modo manual, a través del cual se pueden manejar todos los actuadores de la planta con la interfaz HMI, implementada en la POU visual  "Botonera_general". Por último hemos decidido implementar un modo "pausa" que, a diferencia del marcha/paro, deja la planta paralizada en caso de que estuviera operando en modo automático hasta que se desactive el modo. Tiene prioridad sobre marcha.
 
 * Explicación de la visualización
 
-  Hemos decidido implementar los sensores con forma triangular o cuadrada y un código de colores dual. Cuando están desactivados se muestran en rojo, y al activarse pasan a estar coloreados en verde hasta que se vuelven a desactivar. Por otra parte hemos incluido indicadores visuales que permiten ver de forma fácil qué cintas o procesos están activados en cada momento. Estos indicadores se muestran en blanco cuando su actuador correspondiente está desactivado y en azul en caso contrario. También tenemos un semáforo en el cruce de las cintas A, B y C con la cinta intermedia, que permite ver si el cruce está o no ocupado.
+  Hemos decidido implementar los sensores con forma triangular, excepto uno con forma cuadrada el cual representa que la plataforma giratoria está completamente girada. Además tenemos un código de colores dual. Cuando los sensoresestán desactivados se muestran en rojo, y al activarse pasan a estar coloreados en verde hasta que se vuelven a desactivar. Por otra parte hemos incluido indicadores visuales que permiten ver de forma fácil qué cintas o procesos están activados en cada momento. Estos indicadores se muestran en blanco cuando su actuador correspondiente está desactivado y en azul en caso contrario. También tenemos un semáforo en el cruce de las cintas A, B y C con la cinta intermedia, que permite ver si el cruce está o no ocupado.
 
-  Por otro lado tenemos las dos botoneras para el modo manual. En "Botonera_alm_agv" están los botones que manejan el almacén y los AGV. A la izquierda tenemos los botones A, B y C que descargan los paquetes de forma manual de sus respectivos almacenes. A la derecha tenemos la botonera del AGV, que consta de un botón MARCHA que activa o desactiva los tres AGV de forma simultánea.
+  Por otro lado tenemos la botonera para el modo manual. En "Botonera_general" están los botones que manejan el almacén, los AGV, todas las cintas y el brazo. A la izquierda tenemos los botones que controlan todas las cintas hasta llegar al brazo. En la parte de la derecha encontramos el control del brazo, de las cintas de los almacenes y de los AGV. En lo referente al control de los AGV, el botón "MARCHA" activa simultáneamente los tres AGV, que empiezan a recorrer el cirtcuito preestablecido.
 
   La "Botonera_pedidos" se encarga de gestionar los pedidos. Se pueden realizar pedidos de los tres tipos de paquetes a cada camión. Cuando el pedido está listo se pulsa el botón "PEDIDO" para que los AGV se pongan en marcha una vez el pedido haya llegado al almacén.
 
-  En "ModosFunc" tenemos implementados los modos de funcionamiento. Una ruleta permite seleccionar el modo que queremos activar (AUTO o MANUAL), cuyo cartel se colorea en verde cuando está activo. Por otra parte tenemos los botones de MARCHA/PARO, y además hemos añadido el modo PAUSA/CONTINUE, que tiene prioridad sobre el modo AUTO. Cada uno de estos cuatro botones cuenta con una señal luminosa que indica cuando están activos (verde), o en el caso de que AUTO se encuentre pausado se muestra el indicador de color ámbar.
+  En "ModosFunc" tenemos implementados los modos de funcionamiento. Un selector permite elegir el modo que queremos activar (AUTO o MANUAL), cuyo indicador se ilumina en verde cuando está activo. Por otra parte tenemos los botones de MARCHA/PARO, y además hemos añadido el modo PAUSA/CONTINUE, que tiene prioridad sobre el modo AUTO. Cada uno de estos cuatro botones cuenta con una señal luminosa que indica cuando están activos (verde), o en el caso de que AUTO se encuentre pausado se muestra el indicador de color ámbar.
 
-  Por último hay una botonera para el manejo de las cintas y el brazo robótico o grúa. En la parte izquierda de "Botonera_cin_gru" tenemos el control de todas las cintas del sistema, y un botón para introducir paquetes en la cinta principal manualmente. De abajo a arriba están los siguientes botones:
+ A continuación, explicamos brevemente el funcionamiento de cada botón de la "Botonera_general":
 
 *) Paquete:
  Permite soltar paquetes sobre la cinta principal en el modo manual.
@@ -36,8 +36,17 @@ El proyecto resuelve el problema de logística y tratamiento del producto gracias
 *) C. ppal:
  Actuador de la cinta principal.
 
-*) ROD_CARGA y ROD_DESC:
- Activa la plataforma giratoria (rodillo) en sentido de carga o descarga.
+*) ROD_CARGA:
+ Activa el actuador que permite la carga del paquete en la plataforma giratoria y su posterior descarga en la cinta B.
+
+*) DESC_IZQ y DESC_DRCH:
+ Activa los actuadores que permiten la descarga del paquete en las cintas A y C.
+
+*) GIRO_CARGA:
+ Actuador del giro de la plataforma giratoria en sentido antihorario.
+
+*) GIRO_DESC:
+ Actuador del giro de la plataforma giratoria en sentido horario.
 
 *) C.A1, C.B1, C.C1:
  Actuadores del primer tramo de las cintas A, B y C.
@@ -48,10 +57,14 @@ El proyecto resuelve el problema de logística y tratamiento del producto gracias
 *) C. Int:
  Actuador de la cinta intermedia.
 
-*) GIRO_CARGA:
- Actuador del giro de la plataforma giratoria en sentido antihorario.
+*) V:
+ Actuador de retorno del brazo robótico.
 
-*) GIRO_DESC:
- Actuador del giro de la plataforma giratoria en sentido horario.
+*) A, B, C:
+ Actuadores que permiten mover el brazo hasta las cintas 1, 2 y 3.
 
-   En la parte derecha, tenemos el control manual del brazo robótico o grúa. Los botones A, B, y C hacen que la grúa se mueva hasta las cintas 1, 2 y 3 correspondientemente. Finalmente el botón V hace que la grúa vuelva a la posición de inicio.
+*) C1, C2, C3:
+ Actuadores de las cintas 1, 2 y 3.
+
+*) MARCHA:
+ Activa o desactiva los tres AGV simultáneamente.
