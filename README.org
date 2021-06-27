@@ -30,41 +30,41 @@ El proyecto resuelve el problema de logística y tratamiento del producto gracias
 
  A continuación, explicamos brevemente el funcionamiento de cada botón de la "Botonera_general":
 
-*) Paquete:
++ Paquete:
  Permite soltar paquetes sobre la cinta principal en el modo manual.
 
-*) C. ppal:
++ C. ppal:
  Actuador de la cinta principal.
 
-*) ROD_CARGA:
++ ROD_CARGA:
  Activa el actuador que permite la carga del paquete en la plataforma giratoria y su posterior descarga en la cinta B.
 
-*) DESC_IZQ y DESC_DRCH:
++ DESC_IZQ y DESC_DRCH:
  Activa los actuadores que permiten la descarga del paquete en las cintas A y C.
 
-*) GIRO_CARGA:
++ GIRO_CARGA:
  Actuador del giro de la plataforma giratoria en sentido antihorario.
 
-*) GIRO_DESC:
++ GIRO_DESC:
  Actuador del giro de la plataforma giratoria en sentido horario.
 
-*) C.A1, C.B1, C.C1:
++ C.A1, C.B1, C.C1:
  Actuadores del primer tramo de las cintas A, B y C.
 
-*) C.A2, C.B2, C.C2:
++ C.A2, C.B2, C.C2:
  Actuadores del segundo tramo de las cintas A, B y C.
 
-*) C. Int:
++ C. Int:
  Actuador de la cinta intermedia.
 
-*) V:
++ V:
  Actuador de retorno del brazo robótico.
 
-*) A, B, C:
++ A, B, C:
  Actuadores que permiten mover el brazo hasta las cintas 1, 2 y 3.
 
-*) C1, C2, C3:
++ C1, C2, C3:
  Actuadores de las cintas 1, 2 y 3.
 
-*) MARCHA:
++ MARCHA:
  Activa o desactiva los tres AGV simultáneamente.
